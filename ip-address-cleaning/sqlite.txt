@@ -1,0 +1,64 @@
+RANGE:
+======
+SELECT * FROM arp
+WHERE ts BETWEEN '2025-09-21 00:00:00' AND '2025-09-22 23:59:59';
+
+
+SELECT * FROM arp
+WHERE ts >= '2025-09-22 00:00:00' AND ts <= '2025-09-22 23:59:59';
+
+
+
+SPECIFIC DAY:
+=============
+SELECT * FROM arp
+WHERE date(ts) = '2025-09-22';
+
+SELECT * FROM arp
+WHERE ts >= '2025-09-22 00:00:00' AND ts < '2025-09-23 00:00:00';
+
+
+
+DELETE OLDER THAN:
+==================
+DELETE FROM arp
+WHERE ts < '2025-09-01 00:00:00';
+
+DELETE FROM arp
+WHERE ts < datetime('now', '-1 days');
+
+
+======================================================================================================
+
+CREATE TABLE arp(id TEXT PRIMARY KEY, ipaddress TEXT, macaddress TEXT, vlan TEXT, ts TIMESTAMP);
+CREATE TABLE sharp(id TEXT PRIMARY KEY, ipaddress TEXT, status TEXT, vlan TEXT,  ts TIMESTAMP);
+
+CREATE VIEW arp_vlan1508 AS
+SELECT *
+FROM arp
+WHERE vlan = 'vlan1508'
+
+CREATE VIEW sharp_vlan1508 AS
+SELECT *
+FROM sharp
+WHERE vlan = 'v1508server'
+
+
+SELECT s.ipaddress, s.status
+FROM sharp_vlan1508 s
+LEFT JOIN arp_vlan1508 a ON s.ipaddress = a.ipaddress
+WHERE a.ipaddress IS NULL;
+
+=======================================================================================================
+Export data from SQLite to a CSV-File.
+
+
+ .headers on
+ .mode csv
+ .output arp.csv
+ select * from arp_vlan1508;
+ .output stdout
+
+Show commands:
+.tables
+.schema
