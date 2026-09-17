@@ -1,0 +1,28 @@
+Flags: * - Adjacencies learnt on non-active FHRP router
+       + - Adjacencies synced via CFSoE
+       # - Adjacencies Throttled for Glean
+       CP - Added via L2RIB, Control plane Adjacencies
+       PS - Added via L2RIB, Peer Sync
+       RO - Re-Originated Peer Sync Entry
+       D - Static Adjacencies attached to down interface
+
+IP ARP Table for all contexts
+Total number of entries: 17
+Address         Age       MAC Address     Interface       Flags
+10.10.40.101    00:12:10  20f9.20f5.07a2  Vlan1234        +        
+10.10.40.84     00:06:35  0051.56af.f18e  Vlan1234        +        
+10.10.40.85     00:07:04  0051.56af.aa53  Vlan1234        +        
+1.81.111.104   00:05:03  d238.eae0.0dfc  Vlan1200                 
+1.81.106.19    00:08:07  1959.f5fb.f5c3  Vlan1200                 
+1.81.104.3     00:18:11  1959.f5fb.f5c3  Vlan1200                 
+1.81.104.199   00:00:02  INCOMPLETE      Vlan1200                 
+100.81.105.177   00:13:19  0052.568a.3a0e  Vlan1201        +        
+100.81.105.179   00:08:20  0052.568a.4c1d  Vlan1201        +        
+100.81.105.180   00:17:47  0053.568d.fa5f  Vlan1201        +        
+146.81.80.65     00:05:18  fcdd.24d1.333c  mgmt0                    
+146.81.80.101    00:05:23  4003.7a37.075f  mgmt0                    
+192.168.80.114   00:00:26  2859.f5fb.f5bc  mgmt0                    
+100.81.249.250   00:00:08  2859.f5fb.f5cf  port-channel3000.3800         
+192.168.40.81       -      0000.1c9f.fe7c  Vlan3706        
+128.85.40.65        -      0000.1c9f.fe7e  Vlan3705        
+128.85.3.41         -      0000.1c9f.f4cd  Vlan1220
